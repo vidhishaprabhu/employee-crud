@@ -8,6 +8,7 @@
     Add Employee
   </button>
 </div>
+
 <div
   class="modal fade"
   id="exampleModal"
@@ -51,12 +52,13 @@
               </div>
               <div class="mb-3">
                 <label for="phone" class="col-form-label">Phone:</label>
+                <span class="text-danger">*</span>
                 <input type="text" 
                 formControlName="phone"
                 class="form-control" id="phone" />
               </div>
               <label for="gender" class="col-form-label">Gender:</label>
-
+              <span class="text-danger">*</span>
               <div class="form-check">
                 <input
                   class="form-check-input"
@@ -87,6 +89,7 @@
                 <label for="department" class="col-form-label"
                   >Department:</label
                 >
+                <span class="text-danger">*</span>
                 <input type="text" 
                 formControlName="department"
                 class="form-control" id="department" />
@@ -95,6 +98,7 @@
                 <label for="designation" class="col-form-label"
                   >Designation:</label
                 >
+                <span class="text-danger">*</span>
                 <input type="text"
                 formControlName="designation" 
                 class="form-control" id="designation" />
@@ -102,7 +106,7 @@
               <div class="mb-3">
                 <label for="salary" class="col-form-label"
                   >Salary:</label
-                >
+                ><span class="text-danger">*</span>
                 <input type="text" 
                 formControlName="salary"
                 class="form-control" id="salary" />
@@ -112,6 +116,7 @@
                  class="col-form-label"
                   >Address:</label
                 >
+                <span class="text-danger">*</span>
                 <textarea class="form-control"
                 formControlName="address"
                  id="address"></textarea>
@@ -120,6 +125,7 @@
                 <label for="joiningDate" class="col-form-label"
                   >Joining Date:</label
                 >
+                <span class="text-danger">*</span>
                 <input type="date"
                 formControlName="joiningDate" 
                 class="form-control" id="joiningDate" />

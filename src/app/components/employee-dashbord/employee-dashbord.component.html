@@ -32,11 +32,11 @@
         <td>{{emp.address}}</td>
         <td>{{emp.joiningDate | date}}</td>
         <td>
-        <div class="container">
-          <button class="btn btn-info" >Edit</button>
-        </div>
           <div class="container mt-3">
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-success" [routerLink]="['/add-employee', emp._id]">Edit</button>
+          </div>
+          <div class="container mt-3">
+            <button class="btn btn-danger" (click)="deleteEmp(emp)">Delete</button>
           </div>
         </td>
       </tr>

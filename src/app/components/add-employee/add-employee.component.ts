@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -16,11 +16,15 @@ import { Router } from '@angular/router';
 })
 export class AddEmployeeComponent {
   employeeForm: FormGroup;
+  selectedEmp:any=null
+  id:string=''
+  isEdit:boolean=true;
   router = inject(Router);
   employee: any = [];
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
+    private route:ActivatedRoute
   ) {
     this.employeeForm = fb.group({
       empId: ['', Validators.required],
@@ -36,6 +40,12 @@ export class AddEmployeeComponent {
     });
   }
   ngOnInit() {
+    this.id=this.route.snapshot.paramMap.get('id')||''
+    if(this.id){
+      this.apiService.getEmployeeById(this.id).subscribe((res:any)=>{
+        this.employeeForm.patchValue(res.employee);
+      })
+    }
     this.getEmp();
   }
   getEmp() {
@@ -59,5 +69,22 @@ export class AddEmployeeComponent {
           console.error('There is some error');
         }
       });
+  }
+  editEmp(employee:any){
+    this.selectedEmp=employee;
+    this.employeeForm.patchValue({
+      empId:employee.empId,
+      name:employee.name,
+      email:employee.email,
+      phone:employee.phone,
+      gender:employee.gender,
+      department:employee.department,
+      designation:employee.designation,
+      salary:employee.salary,
+      address:employee.address,
+      joiningDate:employee.joiningDate
+    })
+    this.id=employee._id
+
   }
 }

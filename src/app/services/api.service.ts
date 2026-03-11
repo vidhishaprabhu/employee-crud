@@ -15,4 +15,10 @@ export class ApiService {
   createEmployee(formData:any){
     return this.http.post(`${environment.apiUrl}`,formData)
   }
+  deleteEmployee(id:string){
+    return this.http.delete(`${environment.apiUrl}/${id}`);
+  }
+  getEmployeeById(id:string){
+    return this.http.get(`${environment.apiUrl}/${id}`);
+  }
 }

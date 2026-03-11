@@ -1,0 +1,139 @@
+<div class="container d-flex justify-content-center mt-5">
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Add Employee
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Employee</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="employeeForm">
+          <div class="row">
+            <div class="col-md-6 border-end">
+              <div class="mb-3">
+                <label for="empId" class="col-form-label">Emp Id</label
+                ><span class="text-danger">*</span>
+                <input type="text" formControlName="empId" class="form-control" id="empId" />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="col-form-label">Name</label
+                ><span class="text-danger">*</span>
+                <input type="text" 
+                formControlName="name"
+                class="form-control" id="name" />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="col-form-label">Email:</label
+                ><span class="text-danger">*</span>
+                <input type="email" 
+                formControlName="email"
+                class="form-control" id="email" />
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="col-form-label">Phone:</label>
+                <input type="text" 
+                formControlName="phone"
+                class="form-control" id="phone" />
+              </div>
+              <label for="gender" class="col-form-label">Gender:</label>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="gender"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  value="Male"
+                />
+                <label class="form-check-label" for="male"> Male </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="gender"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                  value="Female"
+                />
+                <label class="form-check-label" for="female"> Female </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              
+              <div class="mb-3">
+                <label for="department" class="col-form-label"
+                  >Department:</label
+                >
+                <input type="text" 
+                formControlName="department"
+                class="form-control" id="department" />
+              </div>
+              <div class="mb-3">
+                <label for="designation" class="col-form-label"
+                  >Designation:</label
+                >
+                <input type="text"
+                formControlName="designation" 
+                class="form-control" id="designation" />
+              </div>
+              <div class="mb-3">
+                <label for="salary" class="col-form-label"
+                  >Salary:</label
+                >
+                <input type="text" 
+                formControlName="salary"
+                class="form-control" id="salary" />
+              </div>
+              <div class="mb-3">
+                <label for="address"
+                 class="col-form-label"
+                  >Address:</label
+                >
+                <textarea class="form-control"
+                formControlName="address"
+                 id="address"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="joiningDate" class="col-form-label"
+                  >Joining Date:</label
+                >
+                <input type="date"
+                formControlName="joiningDate" 
+                class="form-control" id="joiningDate" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,4 +23,7 @@ export class EmployeeDashbordComponent {
       }
     });
   }
+  editEmp(){
+    
+  }
 }

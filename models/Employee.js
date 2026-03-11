@@ -38,7 +38,7 @@ const employeeSchema = mongoose.Schema({
     required:true
   },
   joiningDate:{
-    type:String,
+    type:Date,
     required:true
   }
 });

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class AuthService {
   loginUser(email:string,password:string){
     const body={email,password};
     return this.http.post(`${environment.apiUrl}/auth/login`,body);
+  }
+  logout(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
   }
 }

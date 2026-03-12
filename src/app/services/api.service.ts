@@ -21,4 +21,7 @@ export class ApiService {
   getEmployeeById(id:string){
     return this.http.get(`${environment.apiUrl}/${id}`);
   }
+  updateEmployee(id:string,formData:any){
+    return this.http.put(`${environment.apiUrl}/${id}`,formData);
+  }
 }

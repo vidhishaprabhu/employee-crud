@@ -9,11 +9,11 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  register(name:string,email:string,password:string){
+  registerUser(name:string,email:string,password:string){
     const body={name,email,password}
     return this.http.post(`${environment.apiUrl}/auth/register`,body);
   }
-  login(email:string,password:string){
+  loginUser(email:string,password:string){
     const body={email,password};
     return this.http.post(`${environment.apiUrl}/auth/login`,body);
   }

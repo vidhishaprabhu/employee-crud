@@ -37,6 +37,7 @@ export class LoginComponent {
         if (token) {
           localStorage.setItem('token', token);
           localStorage.setItem('user', JSON.stringify(res.user));
+          this.authService.startSessionTimer();
           this.router.navigateByUrl('/');
         } else {
           console.error('There is some error');

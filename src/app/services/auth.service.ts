@@ -22,4 +22,16 @@ export class AuthService {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
   }
+  isLoggedIn():boolean{
+    if(localStorage.getItem('token')){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+  getToken():string|null{
+    return localStorage.getItem('token');
+
+  }
 }

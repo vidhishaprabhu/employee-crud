@@ -3,19 +3,23 @@ import { EmployeeDashbordComponent } from './components/employee-dashbord/employ
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path:'',
-    component:EmployeeDashbordComponent
+    component:EmployeeDashbordComponent,
+    canActivate:[authGuard]
   },
   {
     path:'add-employee',
-    component:AddEmployeeComponent
+    component:AddEmployeeComponent,
+    canActivate:[authGuard]
   },
   {
     path:'add-employee/:id',
-    component:AddEmployeeComponent
+    component:AddEmployeeComponent,
+    canActivate:[authGuard]
   },
   {
     path:'register',

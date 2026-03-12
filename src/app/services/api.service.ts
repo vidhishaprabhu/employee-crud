@@ -10,18 +10,18 @@ export class ApiService {
   constructor(private http:HttpClient) {}
 
   getEmployee(){
-    return this.http.get(`${environment.apiUrl}`);
+    return this.http.get(`${environment.apiUrl}/employee`);
   }
   createEmployee(formData:any){
-    return this.http.post(`${environment.apiUrl}`,formData)
+    return this.http.post(`${environment.apiUrl}/employee`,formData)
   }
   deleteEmployee(id:string){
-    return this.http.delete(`${environment.apiUrl}/${id}`);
+    return this.http.delete(`${environment.apiUrl}/employee/${id}`);
   }
   getEmployeeById(id:string){
-    return this.http.get(`${environment.apiUrl}/${id}`);
+    return this.http.get(`${environment.apiUrl}/employee/${id}`);
   }
   updateEmployee(id:string,formData:any){
-    return this.http.put(`${environment.apiUrl}/${id}`,formData);
+    return this.http.put(`${environment.apiUrl}/employee/${id}`,formData);
   }
 }

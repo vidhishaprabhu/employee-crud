@@ -36,7 +36,7 @@
             <button class="btn btn-success" [routerLink]="['/add-employee', emp._id]">Edit</button>
           </div>
           <div class="container mt-3">
-            <button class="btn btn-danger" (click)="deleteEmp(emp)">Delete</button>
+            <button class="btn btn-danger" (click)="deleteEmp(emp._id)">Delete</button>
           </div>
         </td>
       </tr>

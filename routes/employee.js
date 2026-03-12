@@ -1,11 +1,11 @@
 const express=require('express');
 const router=express.Router();
 const {createEmployee,getEmployeeById,getAllEmp,updateEmp,deleteEmp}=require('../controller/employee');
-
-router.post('/',createEmployee);
-router.get('/:id',getEmployeeById);
-router.get('/',getAllEmp)
-router.put('/:id',updateEmp);
-router.delete('/:id',deleteEmp);
+const {authenticateJwt}=require('../middleware/auth.middlware')
+router.post('/',authenticateJwt,createEmployee);
+router.get('/:id',authenticateJwt,getEmployeeById);
+router.get('/',authenticateJwt,getAllEmp)
+router.put('/:id',authenticateJwt,updateEmp);
+router.delete('/:id',authenticateJwt,deleteEmp);
 
 module.exports=router

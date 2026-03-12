@@ -6,6 +6,7 @@ const connectDB=require('./config/db');
 const morgan = require('morgan');
 const cors=require('cors');
 const router=require('./routes/employee');
+const authRouter=require('./routes/auth');
 connectDB()
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(morgan('dev'))
 app.use(cors())
 
 app.use('/api/employee',router);
+app.use('/api/auth',authRouter);
 
 
 app.listen(process.env.PORT,()=>{
